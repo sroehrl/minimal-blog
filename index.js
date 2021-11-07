@@ -38,6 +38,7 @@ app.post('/receive',(req, res)=> {
     }
     res.json({request:'received'})
 })
+
 app.get('/:slug?', (req, res) => {
     const article = req.params.slug ? articles.find(x => x.slug === req.params.slug) : articles[0];
     res.render('blog',{article,articles})

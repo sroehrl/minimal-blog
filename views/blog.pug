@@ -11,11 +11,14 @@ html
         .container
             .row
                 .col-8
-                    h1 #{article.name}
-                    p #{article.teaser}
-                    hr
-                    each content in article.article_content
-                        .content !{content.html}
+                    if article
+                        h1 #{article.name}
+                        p #{article.teaser}
+                        hr
+                        each content in article.article_content
+                            .content !{content.html}
+                    else
+                        p No articles yet
                 .col
                     ul.nav.flex-colum
                         each menu in articles
