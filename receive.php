@@ -5,6 +5,9 @@ header("Content-Type: application/json");
 if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) {
     header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
 }
+if (!file_exists('articles')) {
+    mkdir("articles/" , 0777);
+}
 
 $data = file_get_contents('php://input');
 if ($data) {
